@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>დახმარება მჭირდება | HELF ME</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>HELF ME</h1>
+    <p>დახმარება იწყება ერთი კითხვით.</p>
+  </header>
+
+  <main>
+    <h2>რა დახმარება გჭირდება?</h2>
+    <p>მოკლედ აღწერე შენი საჭიროება.</p>
+
+    <form>
+      <label for="category">დახმარების კატეგორია</label>
+      <select id="category" name="category" required>
+        <option value="">აირჩიე კატეგორია</option>
+        <option value="health">ჯანმრთელობა</option>
+        <option value="work">სამუშაო</option>
+        <option value="service">სერვისი</option>
+        <option value="information">ინფორმაცია</option>
+        <option value="other">სხვა</option>
+      </select>
+
+      <label for="request">რა გჭირდება?</label>
+      <textarea id="request" name="request" rows="6"
+        placeholder="აღწერე, რაში გჭირდება დახმარება..." required></textarea>
+
+      <button type="submit">დახმარების მოძებნა</button>
+    </form>
+
+    <p><a href="index.html">← მთავარ გვერდზე დაბრუნება</a></p>
+  </main>
+
+</body>
+</html>
