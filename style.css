@@ -103,3 +103,25 @@ textarea {
     min-height: 140px;
     resize: vertical;
 }
+/* Mobile form layout fix */
+form {
+    width: 100%;
+}
+
+form label {
+    display: block;
+    width: 100%;
+    margin: 18px 0 8px;
+}
+
+form select,
+form textarea {
+    display: block;
+    width: 100%;
+    margin: 0 0 18px 0;
+}
+
+form button {
+    width: 100%;
+    margin-top: 4px;
+}
