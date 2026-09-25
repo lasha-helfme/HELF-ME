@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>დახმარებების ნახვა | HELF ME</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="browse-help.js" defer></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>HELF ME</h1>
+    <p>ადამიანი ადამიანს.</p>
+  </header>
+
+  <main>
+
+    <section aria-labelledby="browseTitle">
+      <h2 id="browseTitle">დახმარების სივრცე</h2>
+
+      <p>
+        ნახე აქტიური დახმარების მოთხოვნები და შეთავაზებები.
+      </p>
+
+      <div class="filters">
+
+        <label for="postTypeFilter">
+          ტიპი
+        </label>
+
+        <select id="postTypeFilter">
+          <option value="all">ყველა</option>
+          <option value="request">დახმარება მჭირდება</option>
+          <option value="offer">შემიძლია დახმარება</option>
+        </select>
+
+        <label for="categoryFilter">
+          კატეგორია
+        </label>
+
+        <select id="categoryFilter">
+          <option value="all">ყველა კატეგორია</option>
+          <option value="physical">ფიზიკური დახმარება</option>
+          <option value="service">სერვისი</option>
+          <option value="information">ინფორმაცია</option>
+          <option value="transport">ტრანსპორტი</option>
+          <option value="other">სხვა</option>
+        </select>
+
+      </div>
+
+      <p
+        id="browseStatus"
+        role="status"
+        aria-live="polite">
+      </p>
+
+      <div
+        id="helpPosts"
+        aria-live="polite">
+      </div>
+
+    </section>
+
+    <p>
+      <a href="index.html">
+        ← მთავარ გვერდზე დაბრუნება
+      </a>
+    </p>
+
+  </main>
+
+</body>
+</html>
