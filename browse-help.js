@@ -93,7 +93,39 @@ document.addEventListener("DOMContentLoaded", async () => {
       article.appendChild(category);
       article.appendChild(description);
       article.appendChild(createdAt);
+if (post.user_id !== user.id) {
+  const connectButton = document.createElement("button");
+  connectButton.type = "button";
+  connectButton.textContent = "დაკავშირება / დახმარება";
 
+  connectButton.addEventListener("click", async () => {
+    connectButton.disabled = true;
+    connectButton.textContent = "იგზავნება...";
+
+    const { error } = await supabaseClient
+      .from("help_connections")
+      .insert({
+        post_id: post.id
+      });
+
+    if (error) {
+      console.error(error);
+
+      if (error.code === "23505") {
+        connectButton.textContent = "მოთხოვნა უკვე გაგზავნილია";
+      } else {
+        connectButton.textContent = "ვერ გაიგზავნა — სცადეთ თავიდან";
+        connectButton.disabled = false;
+      }
+
+      return;
+    }
+
+    connectButton.textContent = "მოთხოვნა გაგზავნილია";
+  });
+
+  article.appendChild(connectButton);
+}
       helpPosts.appendChild(article);
     });
 
@@ -118,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { data, error } = await supabaseClient
       .from("help_posts")
       .select(
-        "id, post_type, category, description, status, created_at"
+        "id, user_id, post_type, category, description, status, created_at"
       )
       .eq("status", "active")
       .order("created_at", { ascending: false });
